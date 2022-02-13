@@ -135,5 +135,6 @@ dmypy.json
 .idea
 .vscode
 static
+staticfiles
 
 pp-complete.csv

@@ -11,7 +11,7 @@ RUN apt-get update && apt-get -y install libpq-dev gcc
 ARG CURRENT_UID=1000
 RUN adduser --disabled-password --uid $CURRENT_UID --gecos "" app
 
-COPY requirements.txt /code/
+COPY ./requirements.txt /code/
 RUN pip install -r requirements.txt
 
 COPY . /code/

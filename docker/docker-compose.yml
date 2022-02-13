@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: real_estate
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    command: runserver
+    volumes:
+      - ../:/code
+    ports:
+      - 8001:8001
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://devel:devel@db:5432/real_estate
+      SECRET_KEY:
+      DEBUG:
+    networks:
+      - real_estate
+
+  db:
+    image: postgres:14
+    container_name: real_estate_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=devel
+      - POSTGRES_PASSWORD=devel
+      - POSTGRES_DB=real_estate
+    expose:
+      - "5432"
+    networks:
+      - real_estate
+
+volumes:
+  postgres_data:
+
+networks:
+  real_estate:
+    external: false

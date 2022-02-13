@@ -157,3 +157,6 @@ SESSION_COOKIE_SECURE = config(
 CSRF_COOKIE_SECURE = config(
     "DJANGO_CSRF_COOKIE_SECURE", cast=bool, default=True
 )
+
+# Required for Heroku hosting
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

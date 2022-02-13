@@ -55,6 +55,8 @@ faker==12.3.0
     # via
     #   -r requirements.in
     #   factory-boy
+gunicorn==20.1.0
+    # via -r requirements.in
 idna==3.3
     # via requests
 inflection==0.5.1
@@ -166,6 +168,8 @@ urllib3==1.26.8
     # via requests
 wcwidth==0.2.5
     # via prompt-toolkit
+whitenoise==6.0.0
+    # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools

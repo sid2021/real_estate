@@ -123,6 +123,7 @@ Authorization: Token a100c1059c3f103320c816df6661a0512dd1bdf3
 - python-decouple
 - psycopg2-binary
 - dj-database-url
+- pip-tools
 
 ## API Documentation
 
@@ -131,3 +132,7 @@ API documentation is available at `http://localhost:8001/swagger/`. In order to 
 It is a very basic documentation presenting examples of schema of response from each endpoint.
 
 The in-built Django Rest Framework Browsable API is disabled.
+
+## Production setup
+
+TODO

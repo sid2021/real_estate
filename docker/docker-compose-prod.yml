@@ -6,7 +6,7 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    command: runserver
+    command: gunicorn
     volumes:
       - ../:/code
     ports:
@@ -14,14 +14,9 @@ services:
     depends_on:
       - db
     environment:
-      - SECRET_KEY=9999
-      - DEBUG=True
-      - SECURE_SSL_REDIRECT=False
-      - DJANGO_SECURE_HSTS_SECONDS=0
-      - DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False
-      - DJANGO_SECURE_HSTS_PRELOAD=False
-      - DJANGO_SESSION_COOKIE_SECURE=False
-      - DJANGO_CSRF_COOKIE_SECURE=False
+      DATABASE_URL: postgres://devel:devel@db:5432/real_estate
+      SECRET_KEY:
+      DEBUG:
     networks:
       - real_estate
 

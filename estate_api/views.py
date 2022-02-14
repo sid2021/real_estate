@@ -47,7 +47,7 @@ class TransactionViewSet(viewsets.GenericViewSet):
         return postcode, parsed_dates
 
     @swagger_auto_schema(responses={status.HTTP_200_OK: PRICES_ENDPOINT_SCHEMA})
-    @action(detail=False, methods=["get"])
+    @action(detail=False, methods=["post"])
     def prices(self, request: Request) -> Response:
         """Return data to generate a time series chart of avarage prices for the
         given postcode and between the given from and to dates.
@@ -61,7 +61,7 @@ class TransactionViewSet(viewsets.GenericViewSet):
         return Response(transactions, status=status.HTTP_200_OK)
 
     @swagger_auto_schema(responses={status.HTTP_200_OK: NUMBER_ENDPOINT_SCHEMA})
-    @action(detail=False, methods=["get"])
+    @action(detail=False, methods=["post"])
     def numbers(self, request: Request) -> Response:
         """Return data to generate a histogram showing the number of transactions
         at various price brackets.

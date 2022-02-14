@@ -120,7 +120,10 @@ class HistogramChartData(BaseChartData):
         )
 
         df = pd.DataFrame(queryset.values_list("price_paid"), columns=["price"])
-        df["bin"] = pd.cut(df["price"], bins=BRACKETS_NUM).astype(str)
-        df2 = df.groupby("bin").bin.count()
+        try:
+            df["bin"] = pd.cut(df["price"], bins=BRACKETS_NUM).astype(str)
+            df2 = df.groupby("bin").bin.count()
+        except ValueError:
+            return {self.postcode: {}}
 
         return {self.postcode: df2.to_dict()}

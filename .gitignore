@@ -137,3 +137,4 @@ dmypy.json
 static
 
 pp-complete.csv
+*.dump

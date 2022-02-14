@@ -16,10 +16,12 @@ def parse_date(date: str) -> Optional[datetime]:
         raise e
 
 
-def validate_postalcode(postcode: str) -> Optional[re.Match]:
+def validate_postalcode(postcode: str) -> Optional[str]:
     """Validate postal code. We are expecting to receive from frontend
     only the outward code (area and district) e.g. 'SW18' which is between
     two and four characters long.
     """
+    if not postcode:
+        return
     if match := re.match(OUTWARD_CODE_REGEX, postcode):
         return match.group()

@@ -5,7 +5,7 @@ Application is hosted Heroku. You can access it from the browser under those URL
 - [Django-Admin](https://the-real-estate.herokuapp.com/admin/) (username `super`, password `plentific_pass`)
 - [Swagger docs](https://the-real-estate.herokuapp.com/swagger/) (make sure to login to Django-Admin before accessing this URL)
 
-To query API use:
+To query API use following endpoints (before that make sure to warm up the Heroku environment by accessing the Django Admin interface):
 
 ### `POST /transactions/prices/`
 

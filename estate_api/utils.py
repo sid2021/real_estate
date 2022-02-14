@@ -21,7 +21,14 @@ def validate_postalcode(postcode: str) -> Optional[str]:
     only the outward code (area and district) e.g. 'SW18' which is between
     two and four characters long.
     """
+    print(postcode)
     if not postcode:
         return
-    if match := re.match(OUTWARD_CODE_REGEX, postcode):
-        return match.group()
+
+    try:
+        match = re.match(OUTWARD_CODE_REGEX, postcode).group()
+    except (AttributeError, ValueError, TypeError):
+        pass
+        return
+    else:
+        return match

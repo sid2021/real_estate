@@ -30,11 +30,14 @@ def test_parse_date(
         ("SW18", "SW18"),
         ("E17", "E17"),
         ("L1", "L1"),
+        ("", None),
+        (None, None),
         ("BH1 1QY", None),
     ],
 )
 def test_validate_postalcode(
-    postcode: str, expected_value: Optional[str]
+    postcode: str,
+    expected_value: Optional[str],
 ) -> None:
     """Assert that validate_postalcode() function returns correct value."""
     assert validate_postalcode(postcode) == expected_value

@@ -30,13 +30,13 @@ ERROR_MSG = (
             [ERROR_MSG],
         ),
         (
-            reverse("transaction-prices"),
-            {"location": "L1", "from": "1999-01", "to": "1999-12"},
+            reverse("transaction-numbers"),
+            {"location": "SW18", "date": "2012-01"},
             status.HTTP_200_OK,
-            {"L1": {}},
+            {"SW18": {}},
         ),
         (
-            reverse("transaction-prices"),
+            reverse("transaction-numbers"),
             {},
             status.HTTP_400_BAD_REQUEST,
             [ERROR_MSG],

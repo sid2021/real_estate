@@ -21,7 +21,6 @@ def validate_postalcode(postcode: str) -> Optional[str]:
     only the outward code (area and district) e.g. 'SW18' which is between
     two and four characters long.
     """
-    print(postcode)
     if not postcode:
         return
 

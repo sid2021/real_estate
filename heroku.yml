@@ -10,4 +10,4 @@ release:
     - python manage.py collectstatic --noinput
     - python manage.py migrate
 run:
-  web: gunicorn config.wsgi
+  web: gunicorn config.wsgi --timeout 60

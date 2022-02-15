@@ -145,3 +145,12 @@ Application is hosted on Heroku and is being deployed using Docker containers (c
 - Free `dyno` running `gunicorn`,
 - PostgreSQL `Hobby Dev` tier (DB has ~**26 million** of rows and was imported to Heroku from Amazon S3 bucket (1.1GB dump file) after being initially seeded in local environment (using Django management command `load_data`)).
 - Static files are served directly from Heroku using `whitenoise` package (while it might be not a good choice for larger apps in our case it's a totally feasible solution).
+
+# API Performance
+
+Due to the size of the dataset (~ 26 million of rows) querying for data spanning over long time ranges takes a considerable amount of time. To address it further steps would be required like:
+
+- caching,
+- scaling hardware (the project is hosted on `free` Heroku dyno),
+- code improvements (e.g. using `pandas` dataframes in `/transactions/prices/` endpoint),
+- pre-calculating common queries from frontend and storing their results in DB (so that we don't have to perform costly calculations for each request).
